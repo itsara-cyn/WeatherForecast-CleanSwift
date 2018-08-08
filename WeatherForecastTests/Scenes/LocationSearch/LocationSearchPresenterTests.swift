@@ -43,11 +43,15 @@ class LocationSearchPresenterTests: XCTestCase
   
   class LocationSearchDisplayLogicSpy: LocationSearchDisplayLogic
   {
-    var displaySomethingCalled = false
+    var displayWeatherDetailCalled = false
+    var displayAlertMessageCalled = false
+
+    func displayWeatherDetail(viewModel: LocationSearch.ViewModel.Weather) {
+        displayWeatherDetailCalled = true
+    }
     
-    func displaySomething(viewModel: LocationSearch.Something.ViewModel)
-    {
-      displaySomethingCalled = true
+    func displayAlertMessage(viewModel: LocationSearch.ViewModel.Error) {
+        displayAlertMessageCalled = true
     }
   }
   
@@ -56,14 +60,14 @@ class LocationSearchPresenterTests: XCTestCase
   func testPresentSomething()
   {
     // Given
-    let spy = LocationSearchDisplayLogicSpy()
-    sut.viewController = spy
-    let response = LocationSearch.Something.Response()
-    
-    // When
-    sut.presentSomething(response: response)
-    
-    // Then
-    XCTAssertTrue(spy.displaySomethingCalled, "presentSomething(response:) should ask the view controller to display the result")
+//    let spy = LocationSearchDisplayLogicSpy()
+//    sut.viewController = spy
+//    let response = LocationSearch.Response.FetchCurrentWeather(forcastItem: ForecastItem)
+//    
+//    // When
+//    sut.presentSomething(response: response)
+//    
+//    // Then
+//    XCTAssertTrue(spy.displaySomethingCalled, "presentSomething(response:) should ask the view controller to display the result")
   }
 }

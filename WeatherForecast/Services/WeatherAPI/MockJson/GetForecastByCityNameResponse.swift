@@ -1,0 +1,13 @@
+//
+//  File.swift
+//  WeatherForecast
+//
+//  Created by Itsaraporn Chaichayanon on 6/8/18.
+//  Copyright © 2018 ItsaraChai. All rights reserved.
+//
+
+import Foundation
+
+let response_get_forcast = """
+{"cod":"200","message":0.0051,"cnt":7,"list":[{"dt":1533535200,"main":{"temp":17.28,"temp_min":15.81,"temp_max":17.28,"pressure":1022.74,"sea_level":1030.23,"grnd_level":1022.74,"humidity":86,"temp_kf":1.47},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"clouds":{"all":0},"wind":{"speed":1.42,"deg":345.002},"sys":{"pod":"d"},"dt_txt":"2018-08-06 06:00:00"},{"dt":1533546000,"main":{"temp":26.12,"temp_min":25.01,"temp_max":26.12,"pressure":1021.44,"sea_level":1028.9,"grnd_level":1021.44,"humidity":48,"temp_kf":1.11},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"clouds":{"all":0},"wind":{"speed":1.77,"deg":40.0034},"sys":{"pod":"d"},"dt_txt":"2018-08-06 09:00:00"},{"dt":1533556800,"main":{"temp":29.8,"temp_min":29.06,"temp_max":29.8,"pressure":1019.74,"sea_level":1027.1,"grnd_level":1019.74,"humidity":40,"temp_kf":0.74},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"clouds":{"all":0},"wind":{"speed":1.72,"deg":216.001},"sys":{"pod":"d"},"dt_txt":"2018-08-06 12:00:00"},{"dt":1533567600,"main":{"temp":29.74,"temp_min":29.37,"temp_max":29.74,"pressure":1017.87,"sea_level":1025.36,"grnd_level":1017.87,"humidity":31,"temp_kf":0.37},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"clouds":{"all":64},"wind":{"speed":2.23,"deg":241.501},"sys":{"pod":"d"},"dt_txt":"2018-08-06 15:00:00"},{"dt":1533578400,"main":{"temp":28.86,"temp_min":28.86,"temp_max":28.86,"pressure":1016.86,"sea_level":1024.19,"grnd_level":1016.86,"humidity":30,"temp_kf":0},"weather":[{"id":801,"main":"Clouds","description":"few clouds","icon":"02d"}],"clouds":{"all":20},"wind":{"speed":2.01,"deg":255.001},"sys":{"pod":"d"},"dt_txt":"2018-08-06 18:00:00"},{"dt":1533589200,"main":{"temp":20.11,"temp_min":20.11,"temp_max":20.11,"pressure":1016.61,"sea_level":1024.02,"grnd_level":1016.61,"humidity":49,"temp_kf":0},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"clouds":{"all":0},"wind":{"speed":1.27,"deg":265.002},"sys":{"pod":"n"},"dt_txt":"2018-08-06 21:00:00"},{"dt":1533600000,"main":{"temp":16.17,"temp_min":16.17,"temp_max":16.17,"pressure":1016.12,"sea_level":1023.63,"grnd_level":1016.12,"humidity":62,"temp_kf":0},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"clouds":{"all":0},"wind":{"speed":1.26,"deg":279.501},"sys":{"pod":"n"},"dt_txt":"2018-08-07 00:00:00"}],"city":{"id":2643743,"name":"London","coord":{"lat":51.5073,"lon":-0.1277},"country":"GB","population":1000000}}
+"""

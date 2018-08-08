@@ -43,27 +43,31 @@ class LocationSearchInteractorTests: XCTestCase
   
   class LocationSearchPresentationLogicSpy: LocationSearchPresentationLogic
   {
-    var presentSomethingCalled = false
+    var presentWeatherDetailCalled = false
+    var presentErrorCalled = false
+
+    func presentWeatherDetail(response: LocationSearch.Response.FetchCurrentWeather) {
+        presentWeatherDetailCalled = true
+    }
     
-    func presentSomething(response: LocationSearch.Something.Response)
-    {
-      presentSomethingCalled = true
+    func presentError(error: WeatherError) {
+        presentErrorCalled = true
     }
   }
   
   // MARK: Tests
   
-  func testDoSomething()
+  func testFetchCurrentWeather()
   {
     // Given
     let spy = LocationSearchPresentationLogicSpy()
     sut.presenter = spy
-    let request = LocationSearch.Something.Request()
+    let request = LocationSearch.Request.FetchCurrentWeather(location: "")
     
     // When
-    sut.doSomething(request: request)
+    sut.fetchCurrentWeather(request: request)
     
     // Then
-    XCTAssertTrue(spy.presentSomethingCalled, "doSomething(request:) should ask the presenter to format the result")
+    XCTAssertTrue(spy.presentWeatherDetailCalled, "doSomething(request:) should ask the presenter to format the result")
   }
 }

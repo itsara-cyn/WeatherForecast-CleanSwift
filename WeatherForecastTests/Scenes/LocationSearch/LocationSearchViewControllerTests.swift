@@ -54,11 +54,10 @@ class LocationSearchViewControllerTests: XCTestCase
   
   class LocationSearchBusinessLogicSpy: LocationSearchBusinessLogic
   {
-    var doSomethingCalled = false
-    
-    func doSomething(request: LocationSearch.Something.Request)
-    {
-      doSomethingCalled = true
+    var fetchCurrentWeatherCalled = false
+
+    func fetchCurrentWeather(request: LocationSearch.Request.FetchCurrentWeather) {
+        fetchCurrentWeatherCalled = true
     }
   }
   
@@ -74,19 +73,22 @@ class LocationSearchViewControllerTests: XCTestCase
     loadView()
     
     // Then
-    XCTAssertTrue(spy.doSomethingCalled, "viewDidLoad() should ask the interactor to do something")
+    XCTAssertTrue(spy.fetchCurrentWeatherCalled, "viewDidLoad() should ask the interactor to do something")
   }
   
   func testDisplaySomething()
   {
     // Given
-    let viewModel = LocationSearch.Something.ViewModel()
+    let location = "Fukuoka"
+    let temperature: Float = 0
+    let humidity = 1
+    let viewModel = LocationSearch.ViewModel.Weather(location: location, temperature: temperature, humidity: humidity)
     
     // When
     loadView()
-    sut.displaySomething(viewModel: viewModel)
+    sut.displayWeatherDetail(viewModel: viewModel)
     
     // Then
-    //XCTAssertEqual(sut.nameTextField.text, "", "displaySomething(viewModel:) should update the name text field")
+    XCTAssertEqual(sut.oLabelTitle.text, location, "displayWeatherDetail(viewModel:) should update the name text field")
   }
 }
